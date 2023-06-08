@@ -1,0 +1,67 @@
+.horizontal-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 50px;
+}
+
+.horizontal-list li {
+  margin-right: 10px;
+  position: relative;
+}
+
+.dropdown .dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 10px 16px;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+  
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 5px 0;
+  font-size: 25px;
+}
+
+.dropdown-content a:hover {
+  background-color: #ccc;
+}
+.dropdown-toggle-games,
+.dropdown-toggle-blog {
+  font-size: 50px;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.nav-button,
+.nav-button-home,
+.nav-button-settings {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.nav-button-home {
+  /* Additional styles for the home button */
+}
+
+.nav-button-settings {
+  /* Additional styles for the settings button */
+}

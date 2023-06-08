@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
+import NavigationBar from '../components/NavigationBar';
 
 export default function Home() {
   return (
@@ -11,8 +12,12 @@ export default function Home() {
       </Head>
 
       <main>
+        <NavigationBar />
         <h1 className={styles.title}>
           Read <Link href="/posts/first-post">this page!</Link>
+          <div>
+            <Link href="/games/tic-tac-toe">Play Tic-Tac-Toe</Link> 
+          </div>
         </h1>
 
         <p className={styles.description}>

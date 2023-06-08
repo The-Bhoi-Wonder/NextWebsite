@@ -7,18 +7,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>The Bhoi Wonder</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <NavigationBar />
-        <h1 className={styles.title}>
-          Read <Link href="/posts/first-post">this page!</Link>
-          <div>
-            <Link href="/games/tic-tac-toe">Play Tic-Tac-Toe</Link> 
-          </div>
-        </h1>
 
         <p className={styles.description}>
           Get started by editing <code>pages/index.js</code>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import styles from './NavigationBar.module.css';
+import Link from "next/link";
+import { useRouter } from 'next/router';
 
 const NavigationBar = () => {
   const [isGamesDropdownOpen, setGamesDropdownOpen] = useState(false);
   const [isBlogDropdownOpen, setBlogDropdownOpen] = useState(false);
+  const router = useRouter();
 
   const handleGamesDropdownClick = () => {
     setGamesDropdownOpen(!isGamesDropdownOpen);
@@ -12,12 +15,18 @@ const NavigationBar = () => {
   const handleBlogDropdownClick = () => {
     setBlogDropdownOpen(!isBlogDropdownOpen);
   };
+  const handleHomeClick = () => {
+    console.log("Home Clicked");
+    router.push("/");
+  }
 
   return (
+    <>
+    <h1>The-Bhoi-Wonder</h1>
     <nav>
       <ul className={styles['horizontal-list']}>
         <li>
-          <button className={`${styles['nav-button']} ${styles['nav-button-home']}`} onClick={() => console.log('Home clicked')}>
+          <button className={`${styles['nav-button']} ${styles['nav-button-home']}`} onClick={handleHomeClick}>
           Home
           </button>
         </li>
@@ -27,8 +36,8 @@ const NavigationBar = () => {
           </button>
           {isGamesDropdownOpen && (
             <div className={`${styles['dropdown-content']} ${styles['dropdown-content-games']}`}>
-              <a href="/games/tic-tac-toe">Tic-Tac-Toe</a>
-              <a>Add more games</a>
+              <Link href="/games/tic-tac-toe">Tic-Tac-Toe</Link>
+              <Link href="/games/sequence">Sequence</Link>
             </div>
           )}
         </li>
@@ -38,8 +47,8 @@ const NavigationBar = () => {
           </button>
           {isBlogDropdownOpen && (
             <div className={`${styles['dropdown-content']} ${styles['dropdown-content-blog']}`}>
-              <a href="/posts/first-post">First Post</a>
-              <a>Add more posts</a>
+              <Link href="/posts/first-post">First Post</Link>
+              <a>More posts to be added</a>
             </div>
           )}
         </li>
@@ -50,6 +59,7 @@ const NavigationBar = () => {
         </li>
       </ul>
     </nav>
+    </>
   );
 };
 

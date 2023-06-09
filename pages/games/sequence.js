@@ -10,9 +10,9 @@ import Image from 'next/image';
 function Card({ path, cardType, onCardClick, clicked }) {
     const [isClicked, setIsClicked] = useState(clicked || false);
     const handleClick = () => {
-        console.log("got here")
+        console.log("Inside Card " + clicked);
         setIsClicked(!isClicked);
-        onCardClick();
+        //onCardClick();
     };
 
     const cardStyle = {
@@ -32,13 +32,25 @@ const sequenceRowStyle = {
     margin: '5px'
 };
 
+
 export default function Game() {
+    const [clickCount, setClickCount] = useState(0);
     function handleCardClick(i) {
         console.log("clicked " + i);
-
+        setClickCount(clickCount +1);
+        console.log("Clicks= "+clickCount);
 
     }
+    const isEvenClick = clickCount % 2 ===0;
+    const evenStyle = {
+         border: 'green'
+    }
+    const oddStyle = {
+        border: 'red'
+    }
+    const outlineColorClass = isEvenClick ? 'card-outline-even' : 'card-outline-odd';
 
+    
     return (
         <>
             <NavigationBar />
@@ -48,8 +60,8 @@ export default function Game() {
             <div>
                 <h1>
                     Sequence
-
                 </h1>
+                <h2>This is a work in progress</h2>
                 <div className="sequence-row" style={{ display: 'flex', gap: '5px', margin: '5px' }}>
                     <Card path="/images/cards/card-back4.png" cardType="wildcard" onCardClick={() => handleCardClick("wildcard")} />
                     <Card path="/images/cards/card-diamonds-6.png" cardType="6d" onCardClick={() => handleCardClick("6d")} />
